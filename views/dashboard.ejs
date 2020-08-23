@@ -1,0 +1,18 @@
+<%- include('partials/header'); -%>
+<div class="hero"></div>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I01")'>I1</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I02")'>I2</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I03")'>I3</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I04")'>I4</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I05")'>I5</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I06")'>I6</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I07")'>I7</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I08")'>I8</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I09")'>I9</button></div>
+        <div class="col-lg-3 col-md-4 col-sm-6"><button class="btn btn-dash btn-dark btn-block" onclick='OnOff("ON", "ardu/I010")'>I10</button></div>
+    </div>
+</div>
+<script>MQTTconnect();</script>
+<%- include('partials/footer'); -%>

@@ -22,10 +22,19 @@ html{
     color: var(--body-font-color);
     scroll-behavior: smooth;
 }
-
+p, li{
+  text-align: justify;
+  margin-left: 30px;
+  font-family: var(--body-font);
+  font-size: 2rem;
+}
+.container{
+  background-color: #fff;
+}
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
+    align-items: center;
 }
 .navbar {
     position: relative;
@@ -38,20 +47,37 @@ html{
     letter-spacing: 5px;
     z-index: 10;
 }
-
+.navbar-dark{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
 .nav-link{
     font-family: var(--body-font);
 }
 .nav-link:hover {
     color: #dd1f94 !important;
 }
-
+/* hero container */
+.hero{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background-image: url("plc-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    text-align: right;
+}
 .footer-padding {
 	padding-bottom: 60px;
 }
 
 .footer {
-	position: absolute;
+  position: fixed;
+	/* position: absolute; */
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -65,13 +91,26 @@ html{
   color: #fff;
 }
 /* log in section */
-
+.login{
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 50vh 0 0 0;
+  margin: auto;
+}
+.btn-lg{
+  position: relative;
+  padding: 15px 80px;
+  font-size: 3rem;
+  border-radius: 10px;
+}
 .form-signin {
     text-align: center;
     width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;
+    background: white;
   }
   .form-signin .checkbox {
     font-weight: 400;
@@ -99,4 +138,26 @@ html{
   .btn-dark:hover{
       background-color: var(--secondary-font-color);
       color: var(--main-font-color);
+      border-color: transparent;
   }
+/* dashboard */
+.dashboard{
+  position: absolute;
+  top: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100vw;
+  background-color: #000;
+}
+.row{
+  align-items: center;
+  margin: 10px;
+}
+.btn-dash{
+  margin: auto;
+  margin-bottom: 10px;
+  width: 80%;
+  height: 120px;
+  font-size: 2.5rem;
+  font-family: var(--body-font);
+}
