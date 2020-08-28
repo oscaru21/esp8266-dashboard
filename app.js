@@ -10,10 +10,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 /* const GoogleStrategy = require('passport-google-oauth20').Strategy; */
 
 /* const client  = mqtt.connect('mqtt://test.mosquitto.org'); */
-const client = mqtt.connect('mqtt://192.168.1.15:1883');
+/* const client = mqtt.connect('mqtt://192.168.1.15:1883'); */
+const client = mqtt.connect('mqtt://localhost:1883');
 
 client.on('connect', function () {
-    client.subscribe('presence', function (err) {
+    client.subscribe('#', function (err) {
       if (!err) {
         client.publish('presence', 'Hello mqtt')
       }
@@ -22,10 +23,22 @@ client.on('connect', function () {
   
   client.on('message', function (topic, message) {
     // message is Buffer
-    console.log(topic.toString())
-    console.log(message.toString())
-    client.end()
+    for(let i = 1; i <= 10; i++){
+        if(i = 10){
+          if (topic.toString() == ("ardu/I" + i)) { //acá coloco el topic
+              document.getElementById("I" + i).textContent = message.toString()
+            }
+        }else{
+          if (topic.toString() == "ardu/I0" + i) { //acá coloco el topic
+              document.getElementById("I" + i).textContent = message.toString()
+            }
+        }
+    }
   })
+
+  function OnOff(dato, I) {
+    client.publish(I, dato)
+  }
 
 const app = express();
 
