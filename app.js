@@ -101,6 +101,18 @@ app.get('/dashboard', function(req, res){
     }
 });
 
+app.get('/button/:number', function(req, res){ 
+    const topic = "ardu/" + req.params.number;
+    console.log(topic);
+    
+    if(req.isAuthenticated()){
+        OnOff("ON", topic);
+        res.render('dashboard');
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/register', function(req, res){
     const username = "oscarumana1021@gmail.com";
     const password = "12345";
