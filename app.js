@@ -107,7 +107,7 @@ app.get('/button/:number', function(req, res){
     
     if(req.isAuthenticated()){
         OnOff("ON", topic);
-        res.render('dashboard');
+        res.status(204).send();
     }else{
         res.redirect('/login');
     }
