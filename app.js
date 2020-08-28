@@ -1,12 +1,31 @@
 require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
+const mqtt = require('mqtt');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+/* const GoogleStrategy = require('passport-google-oauth20').Strategy; */
+
+/* const client  = mqtt.connect('mqtt://test.mosquitto.org'); */
+const client = mqtt.connect('mqtt://192.168.1.15:1883');
+
+client.on('connect', function () {
+    client.subscribe('presence', function (err) {
+      if (!err) {
+        client.publish('presence', 'Hello mqtt')
+      }
+    })
+  })
+  
+  client.on('message', function (topic, message) {
+    // message is Buffer
+    console.log(topic.toString())
+    console.log(message.toString())
+    client.end()
+  })
 
 const app = express();
 
@@ -37,6 +56,7 @@ const userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model('User', userSchema);
+
 
 passport.use(User.createStrategy());
  
